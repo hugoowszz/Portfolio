@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Victor Santos - Dev Fullstack</title>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="img"></div>
+        <div class="header-content">
+            <h1>Olá, me chamo Victor Hugo</h1>
+            <p id="header-info">Desenvolvedor FullStack | Java, Spring Boot</p>
+            <a href="#contato" id="header-contact-me">Fale comigo</a>
+        </div>
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+        
+        <!-- Projetos Destaque -->
+        <div class="project-hl">
+            <!-- Projeto 1 -->
+            <div class="project">
+                <div class="project-img">
+                    <div class="project-img-placeholder"></div>
+                </div>
+                <div class="project-text">
+                    <div>
+                        <h2>Sistema de Notificações</h2>
+                        <p class="project-about">API RESTful para agendamento e envio de notificações multicanal (E-mail, SMS e Push) com logs imutáveis.</p>
+                    </div>
+                    <p class="line"></p>
+                    <div class="project-technologies">
+                        <p class="project-technology">Java</p>
+                        <p class="project-technology">Spring Boot</p>
+                        <p class="project-technology">PostgreSQL</p>
+                        <p class="project-technology">Git</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div class="project">
+                <div class="project-img">
+                    <div class="project-img-placeholder"></div>
+                </div>
+                <div class="project-text">
+                    <div>
+                        <h2>Controle de Gastos API</h2>
+                        <p class="project-about">API de controle financeiro pessoal com transações, categorias customizadas e resumos consolidados.</p>
+                    </div>
+                    <p class="line"></p>
+                    <div class="project-technologies">
+                        <p class="project-technology">Java</p>
+                        <p class="project-technology">Spring Boot</p>
+                        <p class="project-technology">PostgreSQL</p>
+                        <p class="project-technology">OpenAPI</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div class="project">
+                <div class="project-img">
+                    <div class="project-img-placeholder"></div>
+                </div>
+                <div class="project-text">
+                    <div>
+                        <h2>Em Breve</h2>
+                        <p class="project-about">Novos projetos serão adicionados em breve.</p>
+                    </div>
+                    <p class="line"></p>
+                    <div class="project-technologies">
+                        <!-- <p class="project-technology"></p>
+                        <p class="project-technology"></p>
+                        <p class="project-technology"></p> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sobre mim -->
+        <div class="sobre-mim-section">
+            <h1>Sobre mim</h1>
+            <div class="about-me">
+                <div class="me">
+                    <p class="nome">Victor Hugo Rodrigues dos Santos</p>
+                    <p class="curso">Análise e Desenvolvimento de Sistemas</p>
+                </div>
+                <p class="info">Atuo no desenvolvimento de produtos estáveis e escaláveis, utilizando as principais tecnologias do mercado para construir soluções eficientes de ponta a ponta.</p>
+                <div id="language">
+                    <h2>Idiomas</h2>
+                    <p>Português - <span>Fluente</span></p>
+                    <p>Inglês - <span>C1</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Habilidades / Tecnologias -->
+        <div id="habilidades">
+            <h1>Tecnologias que Uso</h1>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fa-brands fa-java skill-icon"></i>Java</div>
+                <div class="skill-item"><i class="fa-solid fa-leaf skill-icon"></i>Spring Boot</div>
+                <div class="skill-item"><i class="fa-solid fa-database skill-icon"></i>SQL</div>
+                <div class="skill-item"><i class="fa-solid fa-server skill-icon"></i>PostgreSQL</div>
+                <div class="skill-item"><i class="fa-brands fa-git-alt skill-icon"></i>Git</div>
+                <div class="skill-item"><i class="fa-brands fa-html5 skill-icon"></i>HTML5</div>
+                <div class="skill-item"><i class="fa-solid fa-wind skill-icon"></i>TailwindCSS</div>
+            </div>
+        </div>
+
+        <!-- Contato -->
+        <div id="contato" class="contato-section">
+            <h1>Fale comigo</h1>
+            <div class="contato-container">
+                <form class="contact-form" onsubmit="sendEmail(event)">
+                    <div class="form-group">
+                        <label for="contact-email">Seu E-mail</label>
+                        <input type="email" id="contact-email" required placeholder="seuemail@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-title">Título</label>
+                        <input type="text" id="contact-title" required placeholder="Assunto da mensagem">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-message">Mensagem</label>
+                        <textarea id="contact-message" rows="5" required placeholder="Sua mensagem..."></textarea>
+                    </div>
+                    <button type="submit" class="contact-submit">Enviar E-mail</button>
+                </form>
+                
+                <div class="socials-box">
+                    <h2>Redes Sociais</h2>
+                    <a href="https://github.com/hugoowszz" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/victorhrsantos/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:hugoowvicttor2006@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> hugoowvicttor2006@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            function sendEmail(event) {
+                event.preventDefault();
+                const email = document.getElementById('contact-email').value;
+                const title = document.getElementById('contact-title').value;
+                const message = document.getElementById('contact-message').value;
+                
+                const mailtoLink = `mailto:hugoowvicttor2006@gmail.com?subject=${encodeURIComponent(title)}&body=${encodeURIComponent("De: " + email + "\n\nMensagem:\n" + message)}`;
+                window.location.href = mailtoLink;
+            }
+
+            // Garante a rolagem suave mesmo que o navegador do usuário bloqueie o scroll-behavior via CSS
+            document.getElementById('header-contact-me').addEventListener('click', function(event) {
+                event.preventDefault();
+                const target = document.getElementById('contato');
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        </script>
+
+    </div>
+</body>
+</html>
