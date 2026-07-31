@@ -14,7 +14,6 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Todos os campos (email, subject, message) são obrigatórios.' });
   }
 
-  // Inicializa o Resend utilizando a chave de API (prioriza a variável de ambiente segura da Vercel)
   const apiKey = process.env.RESEND_API_KEY;
   const resend = new Resend(apiKey);
 
