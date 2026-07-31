@@ -118,34 +118,77 @@
         <div id="contato" class="contato-section">
             <h1>Fale comigo</h1>
             <div class="contato-container">
-                <form class="contact-form" action="https://formsubmit.co/hugoowvicttor2006@gmail.com" target="_blank" method="POST">
-                    <!-- Configurações do FormSubmit -->
-                    <input type="hidden" name="_captcha" value="false">
-                    
+                <form class="contact-form" id="contactForm">
                     <div class="form-group">
                         <label for="contact-email">Seu E-mail</label>
-                        <input type="email" id="contact-email" name="email" required placeholder="seuemail@exemplo.com">
+                        <input type="email" id="contact-email" required placeholder="seuemail@exemplo.com">
                     </div>
                     <div class="form-group">
                         <label for="contact-title">Título</label>
-                        <input type="text" id="contact-title" name="_subject" required placeholder="Assunto da mensagem">
+                        <input type="text" id="contact-title" required placeholder="Assunto da mensagem">
                     </div>
                     <div class="form-group">
                         <label for="contact-message">Mensagem</label>
-                        <textarea id="contact-message" name="message" rows="5" required placeholder="Sua mensagem..."></textarea>
+                        <textarea id="contact-message" rows="5" required placeholder="Sua mensagem..."></textarea>
                     </div>
                     <button type="submit" class="contact-submit">Enviar E-mail</button>
+                    <p id="formStatus" style="margin-top: 15px; font-size: 14px; font-weight: 500; display: none; text-align: left;"></p>
                 </form>
                 
                 <div class="socials-box">
                     <h2>Redes Sociais</h2>
                     <a href="https://github.com/hugoowszz" target="_blank" class="social-btn"><i class="fa-brands fa-github"></i> GitHub</a>
                     <a href="https://www.linkedin.com/in/victorhrsantos/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+                    <a href="mailto:hugoowvicttor2006@gmail.com" class="social-btn"><i class="fa-solid fa-envelope"></i> hugoowvicttor2006@gmail.com</a>
                 </div>
             </div>
         </div>
 
         <script>
+            // Envio do formulário via fetch para a API Serverless
+            document.getElementById('contactForm').addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const email = document.getElementById('contact-email').value;
+                const subject = document.getElementById('contact-title').value;
+                const message = document.getElementById('contact-message').value;
+                const submitBtn = document.querySelector('.contact-submit');
+                const formStatus = document.getElementById('formStatus');
+
+                // Estado de carregamento
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Enviando...';
+                formStatus.style.display = 'none';
+
+                try {
+                    const response = await fetch('/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ email, subject, message })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        formStatus.textContent = 'Mensagem enviada com sucesso!';
+                        formStatus.style.color = '#10B981'; // Verde esmeralda de sucesso
+                        formStatus.style.display = 'block';
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        throw new Error(data.error || 'Erro ao enviar o e-mail');
+                    }
+                } catch (error) {
+                    formStatus.textContent = `Erro: ${error.message}`;
+                    formStatus.style.color = '#EF4444'; // Vermelho de erro
+                    formStatus.style.display = 'block';
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Enviar E-mail';
+                }
+            });
+
             // Garante a rolagem suave mesmo que o navegador do usuário bloqueie o scroll-behavior via CSS
             document.getElementById('header-contact-me').addEventListener('click', function(event) {
                 event.preventDefault();
